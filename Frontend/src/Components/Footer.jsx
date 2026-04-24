@@ -9,9 +9,9 @@ const Footer = () => {
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[3fr_1fr_1fr]">
             {/* ----- Brand Section ----- */}
             <div>
-              <img src={assets.logo} className="w-44 mb-5" />
+              <h1 className="text-2xl font-bold text-black mb-5">Kaushik Ortho</h1>
               <p className="text-gray-600 leading-6 max-w-md text-sm">
-                Prescripto is a modern doctor appointment booking platform
+                Kaushik Ortho is a modern physiotherapist appointment booking platform
                 designed to connect patients with trusted healthcare
                 professionals. Book appointments seamlessly, manage schedules,
                 and access quality medical care anytime, anywhere.
@@ -42,7 +42,7 @@ const Footer = () => {
               </p>
               <ul className="flex flex-col gap-2 text-gray-600 text-sm">
                 <li>📞 +1 (212) 456-7890</li>
-                <li>✉️ support@prescripto.com</li>
+                <li>✉️ support@kaushikortho.com</li>
               </ul>
             </div>
           </div>
@@ -50,7 +50,7 @@ const Footer = () => {
           {/* ----- Bottom Bar ----- */}
           <div className="mt-12 pt-6 border-t">
             <p className="text-center text-xs text-gray-500">
-              © 2025 Prescripto. All rights reserved. Built with care for better
+              © 2026 Kaushik Ortho. All rights reserved. Built with care for better
               healthcare experiences.
             </p>
           </div>

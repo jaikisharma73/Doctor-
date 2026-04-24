@@ -41,17 +41,17 @@ const Sidebar = () => {
 
             <NavLink to="/add-doctor" className={linkStyle}>
               <img src={assets.add_icon} className="w-5" />
-              <span className="hidden md:block">Add Doctor</span>
+              <span className="hidden md:block">Add Physiotherapist</span>
             </NavLink>
 
             <NavLink to="/doctor-list" className={linkStyle}>
               <img src={assets.people_icon} className="w-5" />
-              <span className="hidden md:block">Doctors List</span>
+              <span className="hidden md:block">Physiotherapists List</span>
             </NavLink>
           </ul>
         )}
 
-        {/* DOCTOR LINKS */}
+        {/* PHYSIOTHERAPIST LINKS */}
         {dToken && (
           <ul className="flex flex-col gap-2 p-3 text-sm">
             <NavLink to="/doctor-dashboard" className={linkStyle}>

@@ -31,7 +31,7 @@ const About = () => {
             <p>
               <span className="font-medium text-gray-800">Prescripto</span> is
               your trusted partner in managing healthcare needs efficiently. We
-              help patients connect with qualified doctors, book appointments,
+              help patients connect with qualified physiotherapists, book appointments,
               and manage health records — all in one secure platform.
             </p>
 
@@ -82,7 +82,7 @@ const About = () => {
             </div>
             <h3 className="font-semibold text-lg mb-2">Convenience</h3>
             <p className="text-sm opacity-80">
-              Easy access to trusted doctors and specialists near you, anytime.
+              Easy access to trusted physiotherapists and specialists near you, anytime.
             </p>
           </div>
 

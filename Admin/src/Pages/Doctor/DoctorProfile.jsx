@@ -27,6 +27,10 @@ const DoctorProfile = () => {
 
   const saveProfile = () => {
     const payload = {
+      name: localProfile.name,
+      degree: localProfile.degree,
+      speciality: localProfile.speciality,
+      about: localProfile.about,
       address: localProfile.address,
       fees: localProfile.fees,
       available: localProfile.available,
@@ -55,10 +59,50 @@ const DoctorProfile = () => {
             />
 
             <div className="text-white text-center sm:text-left">
-              <h2 className="text-2xl font-semibold">{localProfile.name}</h2>
-              <p className="text-sm opacity-90 mt-1">
-                {localProfile.degree} • {localProfile.speciality}
-              </p>
+              {isEdit ? (
+                <input
+                  type="text"
+                  value={localProfile.name}
+                  onChange={(e) =>
+                    setLocalProfile((p) => ({ ...p, name: e.target.value }))
+                  }
+                  className="text-2xl font-semibold bg-white/20 text-white placeholder-white/70 outline-none border-b border-white/50 px-1 py-0.5 mt-2"
+                />
+              ) : (
+                <h2 className="text-2xl font-semibold">{localProfile.name}</h2>
+              )}
+
+              {isEdit ? (
+                <div className="flex gap-2 items-center mt-2">
+                  <input
+                    type="text"
+                    value={localProfile.degree}
+                    onChange={(e) =>
+                      setLocalProfile((p) => ({ ...p, degree: e.target.value }))
+                    }
+                    className="text-sm bg-white/20 text-white placeholder-white/70 outline-none border-b border-white/50 px-1 py-0.5 w-24"
+                  />
+                  <span>•</span>
+                  <select
+                    value={localProfile.speciality}
+                    onChange={(e) =>
+                      setLocalProfile((p) => ({ ...p, speciality: e.target.value }))
+                    }
+                    className="text-sm bg-white/20 text-white placeholder-white/70 outline-none border-b border-white/50 px-1 py-0.5"
+                  >
+                    <option className="text-black">Orthopedic Physiotherapy</option>
+                    <option className="text-black">Sports Physiotherapy</option>
+                    <option className="text-black">Geriatric Physiotherapy</option>
+                    <option className="text-black">Pediatric Physiotherapy</option>
+                    <option className="text-black">Neurological Physiotherapy</option>
+                    <option className="text-black">Cardiopulmonary Physiotherapy</option>
+                  </select>
+                </div>
+              ) : (
+                <p className="text-sm opacity-90 mt-1">
+                  {localProfile.degree} • {localProfile.speciality}
+                </p>
+              )}
 
               <span
                 className={`inline-block mt-3 px-4 py-1 rounded-full text-xs font-medium ${
@@ -77,11 +121,21 @@ const DoctorProfile = () => {
             {/* ABOUT */}
             <div>
               <p className="text-sm font-medium text-gray-500 mb-1">
-                About Doctor
+                About Physiotherapist
               </p>
-              <p className="text-gray-700 leading-relaxed">
-                {localProfile.about}
-              </p>
+              {isEdit ? (
+                <textarea
+                  value={localProfile.about}
+                  onChange={(e) =>
+                    setLocalProfile((p) => ({ ...p, about: e.target.value }))
+                  }
+                  className="w-full border rounded-md px-3 py-2 text-gray-700 min-h-[100px] mt-2 outline-none"
+                />
+              ) : (
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  {localProfile.about}
+                </p>
+              )}
             </div>
 
             {/* INFO GRID */}

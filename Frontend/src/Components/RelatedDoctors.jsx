@@ -24,10 +24,10 @@ const RelatedDoctors = ({ docID, speciality }) => {
         {/* Heading */}
         <div className="flex flex-col items-center text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
-            Related Doctors
+            Related Physiotherapists
           </h2>
           <p className="text-gray-500 mt-1 text-sm">
-            More doctors you can book from the same speciality
+            More physiotherapists you can book from the same speciality
           </p>
         </div>
 

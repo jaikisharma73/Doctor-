@@ -63,6 +63,22 @@ export const cancelAppointmentAdmin = createAsyncThunk(
     }
 );
 
+export const deleteAppointmentAdmin = createAsyncThunk(
+    "adminData/deleteAppointment",
+    async (appointmentID, { rejectWithValue }) => {
+        try {
+            const { data } = await axiosInstance.post(
+                "/api/admin/delete-appointment",
+                { appointmentID }
+            );
+            if (!data.success) return rejectWithValue(data.message);
+            return appointmentID;
+        } catch (err) {
+            return rejectWithValue(err.message);
+        }
+    }
+);
+
 /* ================= DASHBOARD ================= */
 
 export const fetchAdminDashboard = createAsyncThunk(

@@ -19,7 +19,7 @@ const AddDoctor = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!docImg) return toast.error("Please upload doctor image");
+      if (!docImg) return toast.error("Please upload physiotherapist image");
 
       const formData = new FormData();
       formData.append("image", docImg);
@@ -65,9 +65,9 @@ const AddDoctor = () => {
       <section className="p-4 sm:p-6 lg:p-8 w-full">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-xl font-semibold text-gray-800">Add Doctor</h1>
+          <h1 className="text-xl font-semibold text-gray-800">Add Physiotherapist</h1>
           <p className="text-sm text-gray-500">
-            Fill in doctor details to add them to the platform
+            Fill in physiotherapist details to add them to the platform
           </p>
         </div>
 
@@ -95,7 +95,7 @@ const AddDoctor = () => {
                 onChange={(e) => setDocImg(e.target.files[0])}
               />
               <div>
-                <p className="font-medium text-gray-700">Doctor Photo</p>
+                <p className="font-medium text-gray-700">Physiotherapist Photo</p>
                 <p className="text-xs text-gray-500">
                   Upload a clear profile picture
                 </p>
@@ -108,7 +108,7 @@ const AddDoctor = () => {
               <div className="space-y-4">
                 <input
                   className="input"
-                  placeholder="Doctor Name"
+                  placeholder="Physiotherapist Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -116,7 +116,7 @@ const AddDoctor = () => {
 
                 <input
                   className="input"
-                  placeholder="Doctor Email"
+                  placeholder="Physiotherapist Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
@@ -200,7 +200,7 @@ const AddDoctor = () => {
               <textarea
                 className="input resize-none"
                 rows={5}
-                placeholder="About Doctor (Experience, achievements, background)"
+                placeholder="About Physiotherapist (Experience, achievements, background)"
                 value={about}
                 onChange={(e) => setAbout(e.target.value)}
                 required
@@ -213,7 +213,7 @@ const AddDoctor = () => {
                 type="submit"
                 className="bg-(--primary) text-white px-10 py-3 rounded-lg font-medium hover:opacity-90 transition"
               >
-                Add Doctor
+                Add Physiotherapist
               </button>
             </div>
           </div>

@@ -238,6 +238,57 @@ const appointmentCancel = async (req, res) => {
     };
 };
 
+// ===== DELETE APPOINTMENT (ADMIN) =====
+const appointmentDelete = async (req, res) => {
+    try {
+        const { appointmentID } = req.body;
+
+        if (!appointmentID) {
+            return res.status(400).json({
+                success: false,
+                message: "Appointment ID required",
+            });
+        };
+
+        const appointment = await Appointment.findById(appointmentID);
+        if (!appointment) {
+            return res.status(404).json({
+                success: false,
+                message: "Appointment not found",
+            });
+        };
+
+        // Release doctor slot if not cancelled/completed
+        if (!appointment.cancelled && !appointment.isCompleted) {
+            const { docID, slotDate, slotTime } = appointment;
+            const doctor = await Doctor.findById(docID);
+
+            if (doctor && doctor.slots_booked[slotDate]) {
+                doctor.slots_booked[slotDate] =
+                    doctor.slots_booked[slotDate].filter(
+                        (time) => time !== slotTime
+                    );
+
+                await doctor.save();
+            };
+        }
+
+        await Appointment.findByIdAndDelete(appointmentID);
+
+        return res.status(200).json({
+            success: true,
+            message: "Appointment deleted successfully",
+        });
+
+    } catch (error) {
+        console.error("AdminDelete Error:", error.message);
+        return res.status(500).json({
+            success: false,
+            message: "Server error",
+        });
+    };
+};
+
 // ===== ADMIN DASHBOARD =====
 const adminDashboard = async (req, res) => {
     try {
@@ -270,5 +321,6 @@ export {
     allDoctors,
     appointmentsAdmin,
     appointmentCancel,
+    appointmentDelete,
     adminDashboard,
 };

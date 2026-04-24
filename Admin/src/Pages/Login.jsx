@@ -30,7 +30,7 @@ const Login = () => {
           {/* Heading */}
           <div className="text-center mb-6">
             <h1 className="text-2xl font-semibold text-gray-800">
-              <span className="text-(--primary)">{state}</span> Login
+              <span className="text-(--primary)">{state === "Admin" ? "Admin" : "Physiotherapist"}</span> Login
             </h1>
             <p className="text-sm text-gray-500 mt-1">
               Secure access to your dashboard
@@ -82,7 +82,7 @@ const Login = () => {
           <div className="text-center text-sm mt-5 text-gray-600">
             {state === "Admin" ? (
               <>
-                Doctor Login?
+                Physiotherapist Login?
                 <span
                   onClick={() => setState("Doctor")}
                   className="text-(--primary) font-medium cursor-pointer hover:underline"

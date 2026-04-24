@@ -12,11 +12,11 @@ const TopDoctors = () => {
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 mt-2">
-            Top Doctors To <span className="text-(--primary)">Book</span>
+            Top Physiotherapists To <span className="text-(--primary)">Book</span>
           </h1>
 
           <p className="max-w-xl mx-auto mt-4 text-gray-500 text-sm md:text-base">
-            Consult with experienced and trusted doctors
+            Consult with experienced and trusted physiotherapists
           </p>
         </div>
 
@@ -70,7 +70,7 @@ const TopDoctors = () => {
             onClick={() => navigate("/doctors")}
             className="px-10 py-2.5 rounded-full font-medium border border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
           >
-            View All Doctors
+            View All Physiotherapists
           </button>
         </div>
       </section>

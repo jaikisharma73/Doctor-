@@ -18,7 +18,7 @@ const SpecialityMenu = () => {
 
           <p className="max-w-xl mx-auto mt-4 text-gray-500 text-sm md:text-base">
             Browse through our wide range of medical specialities and book an
-            appointment with trusted doctors instantly.
+            appointment with trusted physiotherapists instantly.
           </p>
         </div>
 

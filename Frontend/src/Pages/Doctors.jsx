@@ -24,12 +24,12 @@ const Doctors = () => {
   }, [doctors, speciality]);
 
   const filters = [
-    "General physician",
-    "Gynecologist",
-    "Dermatologist",
-    "Pediatricians",
-    "Neurologist",
-    "Gastroenterologist",
+    "Orthopedic Physiotherapy",
+    "Sports Physiotherapy",
+    "Geriatric Physiotherapy",
+    "Pediatric Physiotherapy",
+    "Neurological Physiotherapy",
+    "Cardiopulmonary Physiotherapy",
   ];
 
   return (
@@ -38,7 +38,7 @@ const Doctors = () => {
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl md:text-3xl font-semibold text-gray-900">
-            Doctors
+            Physiotherapists
           </h1>
           <p className="text-gray-500 text-sm mt-1">
             Browse through our verified specialists
@@ -135,7 +135,7 @@ const Doctors = () => {
 
             {filterDoc.length === 0 && (
               <p className="text-center text-gray-500 mt-10">
-                No doctors found
+                No physiotherapists found
               </p>
             )}
           </section>

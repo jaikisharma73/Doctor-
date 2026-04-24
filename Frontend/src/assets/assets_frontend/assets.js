@@ -60,27 +60,27 @@ export const assets = {
 
 export const specialityData = [
     {
-        speciality: 'General physician',
+        speciality: 'Orthopedic Physiotherapy',
         image: General_physician
     },
     {
-        speciality: 'Gynecologist',
+        speciality: 'Sports Physiotherapy',
         image: Gynecologist
     },
     {
-        speciality: 'Dermatologist',
+        speciality: 'Geriatric Physiotherapy',
         image: Dermatologist
     },
     {
-        speciality: 'Pediatricians',
+        speciality: 'Pediatric Physiotherapy',
         image: Pediatricians
     },
     {
-        speciality: 'Neurologist',
+        speciality: 'Neurological Physiotherapy',
         image: Neurologist
     },
     {
-        speciality: 'Gastroenterologist',
+        speciality: 'Cardiopulmonary Physiotherapy',
         image: Gastroenterologist
     },
 ]

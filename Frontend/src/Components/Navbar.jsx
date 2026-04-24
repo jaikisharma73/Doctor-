@@ -41,12 +41,12 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <img
+            <h1
               onClick={() => navigate("/")}
-              src={assets.logo}
-              alt="Logo"
-              className="w-36 md:w-44 cursor-pointer"
-            />
+              className="text-2xl md:text-3xl font-bold text-black cursor-pointer"
+            >
+              Kaushik Ortho
+            </h1>
 
             {/* Desktop Nav */}
             <ul className="hidden md:flex items-center gap-8 font-medium text-gray-700">
@@ -56,7 +56,7 @@ const Navbar = () => {
                   to={path}
                   className="hover:text-blue-600 transition"
                 >
-                  {path === "/" ? "HOME" : path.replace("/", "").toUpperCase()}
+                  {path === "/" ? "HOME" : path === "/doctors" ? "PHYSIOTHERAPISTS" : path.replace("/", "").toUpperCase()}
                 </NavLink>
               ))}
             </ul>
@@ -142,7 +142,7 @@ const Navbar = () => {
           }`}
         >
           <div className="flex items-center justify-between px-6 py-5 border-b">
-            <img src={assets.logo} className="w-32" />
+            <h1 className="text-xl font-bold text-black">Kaushik Ortho</h1>
             <img
               src={assets.cross_icon}
               className="w-7 cursor-pointer"
@@ -158,7 +158,7 @@ const Navbar = () => {
                 onClick={() => setShowMenu(false)}
                 className="py-2 border-b border-gray-100"
               >
-                {path === "/" ? "Home" : path.replace("/", "")}
+                {path === "/" ? "Home" : path === "/doctors" ? "Physiotherapists" : path.replace("/", "")}
               </NavLink>
             ))}
 

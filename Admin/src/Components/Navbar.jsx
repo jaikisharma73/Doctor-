@@ -24,12 +24,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between px-4 sm:px-8 py-3">
           {/* LEFT : Logo + Role */}
           <div className="flex items-center gap-3">
-            <img
-              src={assets.admin_logo}
-              alt="Prescripto"
-              className="w-32 sm:w-40 cursor-pointer select-none"
+            <h1
+              className="text-2xl md:text-3xl font-bold text-black cursor-pointer select-none"
               onClick={() => navigate("/")}
-            />
+            >
+              Kaushik Ortho
+            </h1>
 
             <span
               className={`hidden sm:inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border

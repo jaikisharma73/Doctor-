@@ -54,52 +54,6 @@ const MyAppointments = () => {
     }
   };
 
-  /* ================= RAZORPAY ================= */
-  const initPay = (order) => {
-    const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-      amount: order.amount,
-      currency: order.currency,
-      name: "Doctor Appointment",
-      description: "Appointment Payment",
-      order_id: order.id,
-
-      handler: async (response) => {
-        try {
-          const { data } = await axiosInstance.post(
-            "/api/user/verify-razorpay",
-            response,
-          );
-
-          if (data.success) {
-            toast.success("Payment Successful");
-            getUserAppointments();
-          }
-        } catch (error) {
-          toast.error(error.message);
-        }
-      },
-    };
-
-    const rzp = new window.Razorpay(options);
-    rzp.open();
-  };
-
-  const appointmentRazorpay = async (appointmentID) => {
-    try {
-      const { data } = await axiosInstance.post("/api/user/payment-razorpay", {
-        appointmentID,
-      });
-
-      if (data.success) {
-        initPay(data.order);
-      } else {
-        toast.error(data.message);
-      }
-    } catch (error) {
-      toast.error(error.message);
-    }
-  };
 
   /* ================= INIT ================= */
   useEffect(() => {
@@ -153,7 +107,7 @@ const MyAppointments = () => {
 
                   <p>
                     <span className="font-medium">Fees:</span> {Currency}
-                    {item.amount}
+                    {item.amount} <span className="text-sm font-semibold text-gray-500">(Pay at Clinic)</span>
                   </p>
 
                   {/* STATUS BADGE */}
@@ -170,27 +124,16 @@ const MyAppointments = () => {
                       </span>
                     )}
 
-                    {!item.cancelled && item.payment && !item.isCompleted && (
-                      <span className="inline-block px-3 py-1 text-xs rounded-full bg-indigo-100 text-indigo-600">
-                        Paid
-                      </span>
-                    )}
+
                   </div>
                 </div>
 
                 {/* ACTIONS */}
                 {!item.cancelled && !item.isCompleted && (
                   <div className="flex sm:flex-col gap-2 justify-end min-w-40">
-                    {!item.payment && (
-                      <button
-                        onClick={() => appointmentRazorpay(item._id)}
-                        className="px-4 py-2 rounded-md border border-indigo-600 text-indigo-600 text-sm hover:bg-indigo-700 hover:text-white transition cursor-pointer"
-                      >
-                        Pay Online
-                      </button>
-                    )}
 
-                    {!item.payment && (
+
+                    {!item.cancelled && (
                       <button
                         onClick={() => cancelAppointment(item._id)}
                         className="px-4 py-2 rounded-md border border-red-500 text-red-500 text-sm hover:bg-red-500 hover:text-white transition cursor-pointer"

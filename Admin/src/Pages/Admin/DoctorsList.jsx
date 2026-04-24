@@ -24,10 +24,10 @@ const DoctorsList = () => {
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-xl font-semibold text-gray-800">
-            Doctors Management
+            Physiotherapists Management
           </h1>
           <p className="text-sm text-gray-500">
-            View and manage all registered doctors
+            View and manage all registered physiotherapists
           </p>
         </div>
 

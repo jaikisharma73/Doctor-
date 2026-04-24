@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAllAppointments,
   cancelAppointmentAdmin,
+  deleteAppointmentAdmin,
 } from "../../redux/slices/adminDataSlice";
 import { assets } from "../../assets/assets";
 import { calculateAge, slotDateFormat, Currency } from "../../utils/helpers";
@@ -20,6 +21,14 @@ const AllAppointments = () => {
     dispatch(cancelAppointmentAdmin(id)).then(() =>
       dispatch(fetchAllAppointments()),
     );
+  };
+
+  const deleteHandler = (id) => {
+    if (window.confirm("Are you sure you want to permanently delete this appointment?")) {
+      dispatch(deleteAppointmentAdmin(id)).then(() =>
+        dispatch(fetchAllAppointments()),
+      );
+    }
   };
 
   return (
@@ -92,7 +101,7 @@ const AllAppointments = () => {
                 </p>
 
                 {/* Action */}
-                <div className="flex justify-center">
+                <div className="flex justify-center items-center gap-3">
                   {item.cancelled ? (
                     <span className="px-3 py-1 rounded-full text-xs font-medium bg-red-50 text-red-500">
                       Cancelled
@@ -104,12 +113,19 @@ const AllAppointments = () => {
                   ) : (
                     <button
                       onClick={() => cancelHandler(item._id)}
-                      className="flex items-center justify-center w-9 h-9 rounded-full bg-red-50 hover:bg-red-100 transition"
+                      className="flex items-center justify-center w-9 h-9 rounded-full bg-yellow-50 hover:bg-yellow-100 transition"
                       title="Cancel Appointment"
                     >
                       <img src={assets.cancel_icon} className="w-5 h-5" />
                     </button>
                   )}
+                  <button
+                    onClick={() => deleteHandler(item._id)}
+                    className="flex items-center justify-center w-9 h-9 rounded-full bg-red-50 hover:bg-red-100 transition"
+                    title="Delete Appointment"
+                  >
+                    <span className="text-red-500 font-bold">X</span>
+                  </button>
                 </div>
               </div>
             ))}
@@ -140,22 +156,32 @@ const AllAppointments = () => {
                   </div>
                 </div>
 
-                {item.cancelled ? (
-                  <span className="text-xs px-3 py-1 rounded-full bg-red-50 text-red-500">
-                    Cancelled
-                  </span>
-                ) : item.isCompleted ? (
-                  <span className="text-xs px-3 py-1 rounded-full bg-green-50 text-green-600">
-                    Completed
-                  </span>
-                ) : (
+                <div className="flex items-center gap-2">
+                  {item.cancelled ? (
+                    <span className="text-xs px-3 py-1 rounded-full bg-red-50 text-red-500">
+                      Cancelled
+                    </span>
+                  ) : item.isCompleted ? (
+                    <span className="text-xs px-3 py-1 rounded-full bg-green-50 text-green-600">
+                      Completed
+                    </span>
+                  ) : (
+                    <button
+                      onClick={() => cancelHandler(item._id)}
+                      className="w-9 h-9 flex items-center justify-center rounded-full bg-yellow-50 hover:bg-yellow-100 transition"
+                      title="Cancel Appointment"
+                    >
+                      <img src={assets.cancel_icon} className="w-5 h-5" />
+                    </button>
+                  )}
                   <button
-                    onClick={() => cancelHandler(item._id)}
+                    onClick={() => deleteHandler(item._id)}
                     className="w-9 h-9 flex items-center justify-center rounded-full bg-red-50 hover:bg-red-100 transition"
+                    title="Delete Appointment"
                   >
-                    <img src={assets.cancel_icon} className="w-5 h-5" />
+                    <span className="text-red-500 font-bold">X</span>
                   </button>
-                )}
+                </div>
               </div>
 
               {/* Details */}
